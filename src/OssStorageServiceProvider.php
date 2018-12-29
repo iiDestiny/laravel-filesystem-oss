@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the iidestiny/flysystem-oss.
+ *
+ * (c) iidestiny <iidestiny@vip.qq.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Iidestiny\LaravelFilesystemOss;
 
 use Iidestiny\Flysystem\Oss\OssAdapter;
@@ -8,6 +17,11 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Filesystem;
 
+/**
+ * Class OssStorageServiceProvider
+ *
+ * @author iidestiny <iidestiny@vip.qq.com>
+ */
 class OssStorageServiceProvider extends ServiceProvider
 {
     /**
