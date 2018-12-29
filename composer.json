@@ -1,5 +1,5 @@
 {
-    "name": "iidestiny\/laravel-filesystem-oss",
+    "name": "iidestiny/laravel-filesystem-oss",
     "description": "Oss storage filesystem for Laravel.",
     "license": "MIT",
     "authors": [
@@ -8,10 +8,20 @@
             "email": "iidestiny@vip.qq.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.0",
+        "iidestiny/flysystem-oss": "^1.0"
+    },
     "autoload": {
         "psr-4": {
             "Iidestiny\\LaravelFilesystemOss\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Iidestiny\\LaravelFilesystemOss\\OssStorageServiceProvider"
+            ]
         }
     }
 }

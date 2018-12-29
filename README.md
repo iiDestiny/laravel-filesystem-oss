@@ -1,27 +1,90 @@
-<h1 align="center"> laravel-filesystem-oss </h1>
+# laravel filesystem oss
 
-<p align="center"> Oss storage filesystem for Laravel..</p>
+[AliOss](https://www.aliyun.com/product/oss) storage for Laravel based on [iidestiny/flysystem-oss](https://github.com/iiDestiny/flysystem-oss).
 
+
+## Requirement
+
+- PHP >= 7.0
 
 ## Installing
 
 ```shell
-$ composer require iidestiny/laravel-filesystem-oss -vvv
+$ composer require "iidestiny/laravel-filesystem-oss" -vvv
 ```
+
+## Configuration
+
+1. After installing the library, register the `Iidestiny\LaravelFilesystemOss\OssStorageServiceProvider::class` in your `config/app.php` file:
+
+  ```php
+  'providers' => [
+      // Other service providers...
+      Iidestiny\LaravelFilesystemOss\OssStorageServiceProvider::class,
+  ],
+  ```
+  
+  > Laravel 5.5+ skip
+
+2. Add a new disk to your `config/filesystems.php` config:
+ ```php
+ <?php
+
+ return [
+    'disks' => [
+         //...
+         'oss' => [
+             'driver' => 'oss',
+             'access_key' => env('OSS_ACCESS_KEY'),
+             'secret_key' => env('OSS_SECRET_KEY'),
+             'endpoint'   => env('OSS_ENDPOINT'),
+             'bucket'     => env('OSS_BUCKET'),
+             'isCName'    => env('OSS_IS_CNAME', false), // // 如果 isCname 为 false，endpoint 应配置 oss 提供的域名如：`oss-cn-beijing.aliyuncs.com`，否则为自定义域名，，cname 或 cdn 请自行到阿里 oss 后台配置并绑定 bucket
+         ],
+         //...
+     ]
+ ];
+ ```
 
 ## Usage
 
-TODO
+```php
+<?php
 
-## Contributing
+$disk = Storage::disk('oss');
 
-You can contribute in one of three ways:
+// create a file
+$disk->put('avatars/filename.jpg', $fileContents);
 
-1. File bug reports using the [issue tracker](https://github.com/iidestiny/laravel-filesystem-oss/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/iidestiny/laravel-filesystem-oss/issues).
-3. Contribute new features or update the wiki.
+// check if a file exists
+$exists = $disk->has('file.jpg');
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+// get timestamp
+$time = $disk->lastModified('file1.jpg');
+$time = $disk->getTimestamp('file1.jpg');
+
+// copy a file
+$disk->copy('old/file1.jpg', 'new/file1.jpg');
+
+// move a file
+$disk->move('old/file1.jpg', 'new/file1.jpg');
+
+// get file contents
+$contents = $disk->read('folder/my_file.txt');
+
+// get file url
+$url = $disk->getUrl('folder/my_file.txt');
+```
+
+See more methods [laravel-filesystem-doc](https://laravel.com/docs/5.5/filesystem)
+
+## depend
+
+- [iidestiny/flysystem-oss](https://github.com/iiDestiny/flysystem-oss)
+
+## reference
+
+- [overtrue/flysystem-qiniu](https://github.com/overtrue/flysystem-qiniu)
 
 ## License
 
