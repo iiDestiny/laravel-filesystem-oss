@@ -2,6 +2,11 @@
 
 [AliOss](https://www.aliyun.com/product/oss) storage for Laravel based on [iidestiny/flysystem-oss](https://github.com/iiDestiny/flysystem-oss).
 
+[![Latest Stable Version](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/v/stable)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
+[![Total Downloads](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/downloads)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
+[![Latest Unstable Version](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/v/unstable)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
+[![License](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/license)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
+
 
 ## Requirement
 
