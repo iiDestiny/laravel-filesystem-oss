@@ -79,6 +79,9 @@ $contents = $disk->read('folder/my_file.txt');
 
 // get file url
 $url = $disk->getUrl('folder/my_file.txt');
+
+// file access period
+$url = $disk->signUrl('file.md', $timeout);
 ```
 
 See more methods [laravel-filesystem-doc](https://laravel.com/docs/5.5/filesystem)
