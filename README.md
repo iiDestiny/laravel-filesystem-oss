@@ -1,16 +1,16 @@
-# laravel filesystem oss
+<h1 align="center">laravel filesystem oss</h1>
 
-[AliOss](https://www.aliyun.com/product/oss) storage for Laravel based on [iidestiny/flysystem-oss](https://github.com/iiDestiny/flysystem-oss).
+<p align="center">
+<a href="https://www.aliyun.com/product/oss">AliOss</a> storage for Laravel based on <a href="https://github.com/iiDestiny/flysystem-oss">iidestiny/flysystem-oss</a>.
+</p>
 
-[![Latest Stable Version](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/v/stable)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
-
-[![Total Downloads](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/downloads)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
-
-[![Latest Unstable Version](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/v/unstable)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
-
-<a href="https://github.com/iiDestiny/dependency-injection"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
-
-[![License](https://poser.pugx.org/iidestiny/laravel-filesystem-oss/license)](https://packagist.org/packages/iidestiny/laravel-filesystem-oss)
+<p align="center">
+<a href="https://github.com/iiDestiny/laravel-filesystem-oss"><img src="https://poser.pugx.org/iidestiny/laravel-filesystem-oss/v/stable"></a>
+<a href="https://github.com/iiDestiny/laravel-filesystem-oss"><img src="https://poser.pugx.org/iidestiny/laravel-filesystem-oss/downloads"></a>
+<a href="https://github.com/iiDestiny/laravel-filesystem-oss"><img src="https://poser.pugx.org/iidestiny/laravel-filesystem-oss/v/unstable"></a>
+<a href="https://github.com/iiDestiny/laravel-filesystem-oss"><img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103"></a>
+<a href="https://github.com/iiDestiny/laravel-filesystem-oss"><img src="https://poser.pugx.org/iidestiny/laravel-filesystem-oss/license"></a>
+</p>
 
 
 ## Requirement
