@@ -94,6 +94,14 @@ $url = $disk->signUrl('file.md', $timeout);
 
 See more methods [laravel-filesystem-doc](https://laravel.com/docs/5.5/filesystem)
 
+## 前端 web 直传配置
+
+oss 直传有三种方式，当前扩展包使用的是最完整的 [服务端签名直传并设置上传回调](https://help.aliyun.com/document_detail/31927.html?spm=a2c4g.11186623.2.10.5602668eApjlz3#concept-qp2-g4y-5db) 方式，扩展包只生成前端页面上传所需的签名参数，前端上传实现可参考 [官方文档中的实例](https://help.aliyun.com/document_detail/31927.html?spm=a2c4g.11186623.2.10.5602668eApjlz3#concept-qp2-g4y-5db) 或自行搜索
+
+```php
+$config = $disk->signatureConfig($prefix, $callBackUrl, $expire);
+```
+
 ## depend
 
 -   [iidestiny/flysystem-oss](https://github.com/iiDestiny/flysystem-oss)

@@ -14,6 +14,7 @@ namespace Iidestiny\LaravelFilesystemOss;
 use Iidestiny\Flysystem\Oss\OssAdapter;
 use Iidestiny\Flysystem\Oss\Plugins\FileUrl;
 use Iidestiny\Flysystem\Oss\Plugins\SignUrl;
+use Iidestiny\Flysystem\Oss\Plugins\SignatureConfig;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Filesystem;
@@ -42,6 +43,7 @@ class OssStorageServiceProvider extends ServiceProvider
 
             $filesystem->addPlugin(new FileUrl());
             $filesystem->addPlugin(new SignUrl());
+            $filesystem->addPlugin(new SignatureConfig());
 
             return $filesystem;
         });
