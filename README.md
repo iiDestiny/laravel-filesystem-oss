@@ -48,6 +48,7 @@ return [
         //...
         'oss' => [
             'driver' => 'oss',
+            'root' => '',
             'access_key' => env('OSS_ACCESS_KEY'),
             'secret_key' => env('OSS_SECRET_KEY'),
             'endpoint'   => env('OSS_ENDPOINT'), // 使用 ssl 这里设置如: https://oss-cn-beijing.aliyuncs.com
