@@ -35,9 +35,15 @@ class OssStorageServiceProvider extends ServiceProvider
     public function boot()
     {
         Storage::extend('oss', function ($app, $config) {
+            $root = $config['root'] ?? null;
+
             $adapter = new OssAdapter(
-                $config['access_key'], $config['secret_key'],
-                $config['endpoint'], $config['bucket'], $config['isCName']
+                $config['access_key'],
+                $config['secret_key'],
+                $config['endpoint'],
+                $config['bucket'],
+                $config['isCName'],
+                $root
             );
 
             $filesystem = new Filesystem($adapter);
