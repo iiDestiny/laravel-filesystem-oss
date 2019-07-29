@@ -17,7 +17,6 @@ use Iidestiny\Flysystem\Oss\Plugins\SignUrl;
 use Iidestiny\Flysystem\Oss\Plugins\TemporaryUrl;
 use Iidestiny\Flysystem\Oss\Plugins\SignatureConfig;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Filesystem;
 
 /**
@@ -34,7 +33,7 @@ class OssStorageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Storage::extend('oss', function ($app, $config) {
+        app('filesystem')->extend('oss', function ($app, $config) {
             $root = $config['root'] ?? null;
 
             $adapter = new OssAdapter(
