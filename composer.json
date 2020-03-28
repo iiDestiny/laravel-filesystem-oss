@@ -8,7 +8,7 @@
   }],
   "require": {
     "php": "^7.0",
-    "iidestiny/flysystem-oss": "~1.4"
+    "iidestiny/flysystem-oss": "~2.0"
   },
   "autoload": {
     "psr-4": {
