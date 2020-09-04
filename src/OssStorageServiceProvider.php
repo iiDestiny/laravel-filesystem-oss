@@ -48,7 +48,7 @@ class OssStorageServiceProvider extends ServiceProvider
                 $config['isCName'],
                 $root,
                 $buckets,
-                $cdnHost,
+                $cdnHost
             );
 
             $filesystem = new Filesystem($adapter);
