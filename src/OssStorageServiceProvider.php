@@ -39,6 +39,7 @@ class OssStorageServiceProvider extends ServiceProvider
         app('filesystem')->extend('oss', function ($app, $config) {
             $root = $config['root'] ?? null;
             $buckets = isset($config['buckets'])?$config['buckets']:[];
+            $cdnHost = isset($config['cdnHost'])?$config['cdnHost']:'';
             $adapter = new OssAdapter(
                 $config['access_key'],
                 $config['secret_key'],
@@ -46,7 +47,8 @@ class OssStorageServiceProvider extends ServiceProvider
                 $config['bucket'],
                 $config['isCName'],
                 $root,
-                $buckets
+                $buckets,
+                $cdnHost,
             );
 
             $filesystem = new Filesystem($adapter);
