@@ -15,6 +15,12 @@
 <a href="https://github.com/iiDestiny/laravel-filesystem-oss"><img src="https://poser.pugx.org/iidestiny/laravel-filesystem-oss/license"></a>
 </p>
 
+<p align="center">
+感谢关注「GitHub 热门」公众号，带你了解技术圈内热门新鲜事！
+<br/>
+<img src="https://cdn.learnku.com/uploads/images/202011/09/4430/qsECw9Ctgv.jpg!large">
+</p>
+
 ## 扩展包要求
 
 -   PHP >= 7.0
