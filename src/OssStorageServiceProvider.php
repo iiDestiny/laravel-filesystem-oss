@@ -48,7 +48,9 @@ class OssStorageServiceProvider extends ServiceProvider
                 $root,
                 $buckets
             );
-
+            
+            $adapter->setCdnUrl($config['cdnHost']);
+            
             $filesystem = new Filesystem($adapter);
 
             $filesystem->addPlugin(new FileUrl());
