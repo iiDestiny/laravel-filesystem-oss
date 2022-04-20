@@ -21,7 +21,7 @@
 </p>
 
 ## 目录
-- laravel >= 9 `composer require "iidestiny/laravel-filesystem-oss:^3"`
+- laravel >= 9 `composer require "iidestiny/laravel-filesystem-oss:^3.1"`
 - laravel < 9 `composer require "iidestiny/laravel-filesystem-oss:^2"`
 
 ## 扩展包要求
@@ -32,7 +32,7 @@
 ## 安装命令
 
 ```shell
-$ composer require "iidestiny/laravel-filesystem-oss:^3" -vvv
+$ composer require "iidestiny/laravel-filesystem-oss:^3.1" -vvv
 ```
 
 ## 配置
