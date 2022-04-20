@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "iidestiny/flysystem-oss": "^4.0",
+        "iidestiny/flysystem-oss": "^4.1",
         "laravel/framework": "^9.0"
     },
     "autoload": {
