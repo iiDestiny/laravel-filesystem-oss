@@ -44,6 +44,8 @@ class OssStorageServiceProvider extends ServiceProvider
                 $buckets
             );
 
+            $adapter->setCdnUrl($config['url'] ?? null);
+
             return new FilesystemAdapter(new Filesystem($adapter), $adapter, $config);
         });
     }
