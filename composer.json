@@ -1,5 +1,5 @@
 {
-    "name": "iidestiny/laravel-filesystem-oss",
+    "name": "carlin/laravel-filesystem-oss",
     "description": "Oss storage filesystem for Laravel.",
     "license": "MIT",
     "authors": [
