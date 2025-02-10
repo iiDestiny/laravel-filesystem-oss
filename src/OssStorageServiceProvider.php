@@ -41,7 +41,8 @@ class OssStorageServiceProvider extends ServiceProvider
                 $config['bucket'],
                 $config['isCName'],
                 $root,
-                $buckets
+                $buckets,
+                ...($config['clientParams'] ?? []),
             );
 
             $adapter->setCdnUrl($config['url'] ?? null);

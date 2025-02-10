@@ -39,47 +39,57 @@ $ composer require "iidestiny/laravel-filesystem-oss:^3.1" -vvv
 
 1. 将服务提供者 `Iidestiny\LaravelFilesystemOss\OssStorageServiceProvider::class` 注册到 `config/app.php` 文件:
 
-```php
-'providers' => [
-    // Other service providers...
-    Iidestiny\LaravelFilesystemOss\OssStorageServiceProvider::class,
-],
-```
+    ```php
+    'providers' => [
+        // Other service providers...
+        Iidestiny\LaravelFilesystemOss\OssStorageServiceProvider::class,
+    ],
+    ```
 
-> Laravel 5.5+ 会自动注册服务提供者可过滤
+    > Laravel 5.5+ 会自动注册服务提供者可过滤
 
 2. 在 `config/filesystems.php` 配置文件中添加你的新驱动
 
-```php
-<?php
-
-return [
-   'disks' => [
-        //...
-        'oss' => [
-            'driver' => 'oss',
-            'root' => '', // 设置上传时根前缀
-            'access_key' => env('OSS_ACCESS_KEY'),
-            'secret_key' => env('OSS_SECRET_KEY'),
-            'endpoint'   => env('OSS_ENDPOINT'), // 使用 ssl 这里设置如: https://oss-cn-beijing.aliyuncs.com
-            'bucket'     => env('OSS_BUCKET'),
-            'isCName'    => env('OSS_IS_CNAME', false), // 如果 isCname 为 false，endpoint 应配置 oss 提供的域名如：`oss-cn-beijing.aliyuncs.com`，否则为自定义域名，，cname 或 cdn 请自行到阿里 oss 后台配置并绑定 bucket
-            // 如果有更多的 bucket 需要切换，就添加所有bucket，默认的 bucket 填写到上面，不要加到 buckets 中
-            'buckets'=>[
-                'test'=>[
-                    'access_key' => env('OSS_ACCESS_KEY'),
-                    'secret_key' => env('OSS_SECRET_KEY'),
-                    'bucket'     => env('OSS_TEST_BUCKET'),
-                    'endpoint'   => env('OSS_TEST_ENDPOINT'),
-                    'isCName'    => env('OSS_TEST_IS_CNAME', false),
+    ```php
+    <?php
+    
+    use OSS\OssClient;
+    
+    return [
+       'disks' => [
+            //...
+            'oss' => [
+                'driver' => 'oss',
+                'root' => '', // 设置上传时根前缀
+                'access_key' => env('OSS_ACCESS_KEY'),
+                'secret_key' => env('OSS_SECRET_KEY'),
+                'endpoint'   => env('OSS_ENDPOINT'), // 使用 ssl 这里设置如: https://oss-cn-beijing.aliyuncs.com
+                'bucket'     => env('OSS_BUCKET'),
+                'isCName'    => env('OSS_IS_CNAME', false), // 如果 isCname 为 false，endpoint 应配置 oss 提供的域名如：`oss-cn-beijing.aliyuncs.com`，否则为自定义域名，，cname 或 cdn 请自行到阿里 oss 后台配置并绑定 bucket
+                // 额外自定义初始化 OSS 客户端参数
+                'clientParams' => [
+                    // 参考:
+                    // 1. https://help.aliyun.com/zh/oss/developer-reference/initialization-6
+                    // 2. \OSS\OssClient::__initNewClient
+                    // 3. \OSS\OssClient::__initClient
+                    'signatureVersion' => OssClient::OSS_SIGNATURE_VERSION_V4,
                 ],
-                //...
+                // 如果有更多的 bucket 需要切换，就添加所有bucket，默认的 bucket 填写到上面，不要加到 buckets 中
+                'buckets'=>[
+                    'test'=>[
+                        'access_key' => env('OSS_ACCESS_KEY'),
+                        'secret_key' => env('OSS_SECRET_KEY'),
+                        'bucket'     => env('OSS_TEST_BUCKET'),
+                        'endpoint'   => env('OSS_TEST_ENDPOINT'),
+                        'isCName'    => env('OSS_TEST_IS_CNAME', false),
+                    ],
+                    //...
+                ],
             ],
-        ],
-        //...
-    ]
-];
-```
+            //...
+        ]
+    ];
+    ```
 
 ## 基本使用
 
