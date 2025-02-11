@@ -33,6 +33,8 @@ class OssStorageServiceProvider extends ServiceProvider
         app('filesystem')->extend('oss', function ($app, $config) {
             $root = $config['root'] ?? null;
             $buckets = $config['buckets'] ?? [];
+            $extra = array_diff_key($config, array_flip(['driver', 'root', 'buckets', 'access_key', 'secret_key',
+                'endpoint', 'bucket', 'isCName', 'url']));
 
             $adapter = new OssAdapter(
                 $config['access_key'],
@@ -41,7 +43,8 @@ class OssStorageServiceProvider extends ServiceProvider
                 $config['bucket'],
                 $config['isCName'],
                 $root,
-                $buckets
+                $buckets,
+                ...$extra,
             );
 
             $adapter->setCdnUrl($config['url'] ?? null);
